@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" href="fonts/novito.css"/>
+		<link rel="stylesheet" href="css/master.css"/>
+		<link rel="stylesheet" href="css/jquery.fullPage.css"/>
+		
+		<script src="jquery.min.js"></script>
+		<script src="jquery.fullPage.min.js"></script>
+		
+		<!--[if lt IE 9]>
+			<style>
+				div#-content.center {
+					position: absolute;
+					top: 10%;
+				}
+			</style>
+		<![endif]-->
+		
+		<title>FamLink</title>
+	</head>
+	<body onload="document.body.className = 'load';">
+		<div id="fullpage">
+			<div class="section">
+				<div class="page1 page slide">
+					<div class="-content">
+						<h1>HEY THERE! I'M <strong>JACQUES</strong>.</h1>
+						<p><strong>''IF YOU CAN DREAM IT, YOU CAN DO IT.'' - WALT DISNEY</strong></p>
+						<div id="scrolling-ways">
+							<br/><br/>
+							<img src="swipe.png" style="width: 32px; height: 32px;"/>
+							<img src="arrows.png" style="width: 64px; height: 32px;"/>
+						</div>
+					</div>
+				</div>
+				<div class="page2 page slide">
+					<div class="-content">
+						<h1><strong><em>ACTIVITIES</em> THAT I LIKE</strong>:</h1></br></br>
+						<ul>
+							<li><strong>ATHLETICS</strong>, <strong>CROSS-COUNTRY</strong>, <strong>TENNIS</strong> AND <strong>CRICKET</strong>.</li>
+							<li><strong>MUSIC</strong>, <strong>COMPUTERS</strong>, <strong>WRITING</strong> AND <strong>TECHNOLOGY</strong>.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="page1 page slide">
+					<div class="-content">
+						<h1><strong><em>MUSIC ARTISTS</em> THAT I LIKE</strong>:</h1></br></br>
+						<ul>
+							<li><strong>AVICII</strong>, <strong>DAVID GUETTA</strong>, <strong>ALESSO</strong>, AND <strong>GALANTIS</strong>.</li>
+							<li><strong>COLDPLAY</strong>, <strong>SIA</strong>, <strong>ADELE</strong>, <strong>ONE REPUBLIC</strong> AND <strong>SAM SMITH</strong>.</li>
+							<li><strong>NEWSBOYS</strong>, <strong>PHILLIP PHILLIPS</strong>, <strong>HILLSONG</strong> AND <strong>MATTHEW MOLE</strong>.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="page2 page slide">
+					<div class="-content">
+						<h1><strong>ABOUT ME</strong>:</h1></br></br>
+						<p><strong>I AM 13 YEARS OLD. I LIVE IN SOUTH AFRICA. MY FULL NAME IS JACQUES MARAIS. I LOVE THE OUTDOORS JUST AS MUCH AS THE INDOORS.</strong></p>
+						</br></br>
+						<div id="social">
+							<a href="https://www.facebook.com/jacques.marais.3154"><img src="facebook.png" style="width: 32px; height: 32px;"/></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		$(document).ready(function(){
+		
+			$("#fullpage").fullpage({
+				slidesNavigation: true,
+				
+				afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+					window.localStorage.setItem("currentSlide", slideIndex);
+					if(slideIndex !== 0){
+						document.getElementById("scrolling-ways").style.display = "none";
+					}
+				}
+			});
+			
+			$.fn.fullpage.moveTo(1, parseInt(window.localStorage.getItem("currentSlide"), 10));
+			
+		});
+		</script>
+	</body>
+</html>
